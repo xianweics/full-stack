@@ -1,4 +1,4 @@
-# Description 
+# Description
 > This is full stack cli for developers to start their project quickly
 
 # Technology Stack
