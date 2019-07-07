@@ -1,0 +1,28 @@
+$header-bg: rgb(230, 230, 230);
+$header-active-color: rgb(51, 51, 51);
+$header-color: rgb(48, 48, 48);
+
+.list {
+  background: $header-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  line-height: 48px;
+  .item {
+    &:first-child {
+      margin-right: 24px;
+    }
+    .item-link {
+      color: $header-color;
+      display: block;
+      height: 44px;
+      border-bottom: 4px solid transparent;
+      &.active {
+        color: $header-active-color;
+        font-weight: bold;
+        border-bottom-color: $header-active-color;
+      }
+    }
+  }
+}

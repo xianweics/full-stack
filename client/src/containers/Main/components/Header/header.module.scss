@@ -1,0 +1,56 @@
+@import '../config';
+
+.header {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  .nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: $main-primary-color;
+    height: $header-height;
+    line-height: $header-height;
+    .nav-key {
+      width: 56px;
+      text-align: center;
+      background-color: $main-light-primary-color;
+    }
+    .nav-main {
+      flex: 1;
+      margin: 0 10px 0 40px;
+      .main-list {
+        display: flex;
+        justify-content: flex-start;
+        .main-list-item {
+          margin-right: 24px;
+          &:last-child {
+            margin-right: 0;
+          }
+          .nav-item-link {
+            display: block;
+            height: $header-height - $nav-active-height;
+            border-bottom: $nav-active-height solid transparent;
+            padding: 0 2px;
+            color: $nav-font-color;
+            white-space: nowrap;
+            &.active {
+              border-bottom-color: $nav-font-color;
+            }
+          }
+        }
+      }
+    }
+    .nav-tip-group {
+      .tip-notice {
+        color: $nav-font-color;
+        margin-right: 10px;
+      }
+      .tip-user {
+        color: $nav-font-color;
+      }
+    }
+  }
+}
+
+

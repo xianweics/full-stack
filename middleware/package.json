@@ -1,0 +1,40 @@
+{
+  "name": "middleware-cli",
+  "version": "1.0.0",
+  "description": "This is middleware server",
+  "license": "MIT",
+  "author": "Xianwei Wu",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "express",
+    "http-proxy-middleware",
+    "log4js",
+    "gulp",
+    "babel"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.4.5",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.19.1",
+    "log4js": "^4.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "cross-env": "^5.2.0",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production gulp buid",
+    "dev": "cross-env NODE_ENV=development gulp dev",
+    "start": "supervisor dist/src/app.js"
+  }
+}

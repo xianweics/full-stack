@@ -1,0 +1,40 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "false",
+        "useBuiltIns": "usage",
+        "corejs": "3.0.0"
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-react-jsx",
+    "@babel/plugin-proposal-export-default-from",
+    "add-module-exports",
+    [
+      "react-css-modules",
+      {
+        "generateScopedName": "[local]-[hash:5]",
+        "filetypes": {
+          ".scss": {
+            "syntax": "postcss-scss"
+          },
+          ".less": {
+            "syntax": "postcss-less"
+          }
+        }
+      }
+    ]
+  ]
+}
