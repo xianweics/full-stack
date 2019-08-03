@@ -169,6 +169,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       favicon: joinClient('public/img/favicon.ico'),
       template: joinClient('public/index.html'),
+      chunksSortMode: 'none',
       filename: 'index.html',
       basePath: publicPath,
       minify: {
