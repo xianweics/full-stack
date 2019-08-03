@@ -8,18 +8,13 @@ export function routeMapToComponent (routes) {
         let { path, component: Component, exact, to = '/', isRedirect, title = 'default title' } = route;
         return (
           isRedirect
-            ? <Redirect;;
-      key={ index }; from={ path }; to={ to };/>
-      : <Route;;
-              key={ index }; path={ path }; exact={ exact };
-              render={ (); => {
+            ? <Redirect
+              key={ index } from={ path } to={ to }/> : <Route
+              key={ index } path={ path } exact={ exact }
+              render={ () => {
                 document.title = title;
-                return; <Component;
-                  key={ index }; path={ path };
-                  exact={ exact };/>;
-      } }/>
-      )
+                return <Component key={ index } path={ path } exact={ exact }/>;
+              }}/>);
       }) }
-    </Switch>;
-)
+    </Switch>);
 }

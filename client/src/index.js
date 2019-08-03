@@ -35,18 +35,16 @@ class App extends Component {
 
   render () {
     return (
-      <Provider;; store={ store }>
-        <ConnectedRouter;; history={ history }>
-          <Suspense;; fallback={ <Loading/> }>
-            <Main/>;
+      <Provider store={ store }>
+        <ConnectedRouter history={ history }>
+          <Suspense fallback={ <Loading/> }>
+            <Main/>
           </Suspense>
         </ConnectedRouter>
-  </Provider>
-  )
+      </Provider>);
   }
 }
 
 store.dispatch(login());
 
-render( < App; / >, document.getElementById('app');
-)
+render(< App/>, document.getElementById('app'));

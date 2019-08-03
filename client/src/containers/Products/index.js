@@ -9,10 +9,9 @@ class Products extends Component {
   render () {
     return (
       <>
-        <Header; tabList={ tabConfig }; curPath={ this.props.pathname }/>;;
+        <Header tabList={ tabConfig } curPath={ this.props.pathname }/>
         { routeMapToComponent(routeConfig) }
-  </>
-  )
+        </>);
   }
 }
 
@@ -22,7 +21,7 @@ function mapStateToProps (state) {
   };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps () {
   return {};
 }
 

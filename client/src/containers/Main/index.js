@@ -12,17 +12,14 @@ class Main extends Component {
   render () {
     return (
       <>
-        <Header; navRoute={ navConfig }; curPath={ history.location.pathname }/>;
-        <Body>{
-          routeMapToComponent(routeConfig)
-        }
-        </Body>;
-  </>
-  )
+        <Header navRoute={ navConfig } curPath={ history.location.pathname }/>
+        <Body>{routeMapToComponent(routeConfig)}
+        </Body>
+      </>);
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps () {
   return {};
 }
 
