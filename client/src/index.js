@@ -7,7 +7,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import Main from '@containers/Main';
 import '@public/css';
 import Loading from '@components/Loading';
-import { login } from '@redux/actions/login';
+
+import { getUsers } from '@services';
 
 class App extends Component {
   constructor () {
@@ -35,9 +36,9 @@ class App extends Component {
 
   render () {
     return (
-      <Provider store={ store }>
-        <ConnectedRouter history={ history }>
-          <Suspense fallback={ <Loading/> }>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Suspense fallback={<Loading/>}>
             <Main/>
           </Suspense>
         </ConnectedRouter>
@@ -45,6 +46,6 @@ class App extends Component {
   }
 }
 
-store.dispatch(login());
-
+// store.dispatch(login());
+getUsers();
 render(< App/>, document.getElementById('app'));

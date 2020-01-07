@@ -1,17 +1,21 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import path from 'path';
 import config from './config';
 import proxy from 'http-proxy-middleware';
+
 const app = express();
-const isProd = process.env.NODE_ENV === 'production';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, '../../../client/dist')));
+
 app.use('*', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
   res.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length');
   res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
   if (req.method === 'OPTIONS') {
@@ -21,18 +25,22 @@ app.use('*', (req, res, next) => {
   }
 });
 
-app.use('/server1',
+app.use('/api',
   proxy({
     target: config.proxyTarget,
     changeOrigin: true,
     pathRewrite: {
-      '^/server1': '/'
+      '^/api': '/'
     }
   })
 );
 
 app.get('*', function (req, res) {
-  isProd ? res.sendFile(config.clientIndex) : res.send('not found');
+  res.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
 });
 
-app.listen(config.port);
+const server = app.listen(config.port, () => {
+  const host = server.address().address;
+  const port = server.address().port;
+  console.log('访问地址为 http://%s:%s', host, port);
+});

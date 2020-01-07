@@ -2,6 +2,7 @@
 // const {getFavorite, addFavorite} = require('../database/sql');
 export default {
   getUsers: ctx => {
+    // eslint-disable-next-line no-return-assign
     return ctx.body = {
       code: 200,
       data: {
@@ -22,6 +23,7 @@ export default {
     };
   },
   getMembers: ctx => {
+    // eslint-disable-next-line no-return-assign
     return ctx.body = {
       code: 200,
       data: {

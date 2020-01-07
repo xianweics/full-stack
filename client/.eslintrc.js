@@ -25,6 +25,7 @@ module.exports = {
     semi: [1, 'always'],
     'react/jsx-uses-react': 1,
     'react/jsx-uses-vars': 1,
-    'eol-last': 0
+    'eol-last': 0,
+    'no-trailing-spaces': "off"
   }
 };

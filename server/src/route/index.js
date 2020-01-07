@@ -11,7 +11,9 @@ export default class Route {
   static init (app) {
     logRecord.init(app);
     app.use(routes.routes());
+    app.use(async (ctx, next) => {
+      console.info(ctx.url);
+      await next();
+    });
   }
 }
-
-

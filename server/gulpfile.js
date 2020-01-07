@@ -16,12 +16,9 @@ gulp.task('copyNodeModules', () => {
   }).pipe(gulp.dest(NODE_SERVER_DEST));
 });
 
-gulp.task('cleanOther', () => {
-    return del([
-      `${NODE_SERVER_DEST}/**/*.*`,
-      `!${NODE_SERVER_DEST}/node_modules/**/*.*`
-    ]);
-  }
+gulp.task('cleanOther', () => del([
+  `${NODE_SERVER_DEST}/**/*.*`,
+  `!${NODE_SERVER_DEST}/node_modules/**/*.*`])
 );
 
 gulp.task('cleanNodeModule', () => {
@@ -42,9 +39,9 @@ gulp.task('babeljs', () => {
   return gulp.src(['src/**/*.js', '!node_modules/**/*.*'], {
     base: '.'
   }).pipe(babel({
-      presets: ['@babel/env'],
-      plugins: ['@babel/transform-runtime']
-    }))
+    presets: ['@babel/env'],
+    plugins: ['@babel/transform-runtime']
+  }))
     .pipe(gulp.dest(NODE_SERVER_DEST));
 });
 
