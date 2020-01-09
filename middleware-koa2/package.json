@@ -32,8 +32,8 @@
     "gulp-babel": "^8.0.0"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production gulp buid",
     "dev": "cross-env NODE_ENV=development gulp dev",
+    "build": "cross-env NODE_ENV=production gulp buid",
     "start": "supervisor dist/src/app.js"
   }
 }
